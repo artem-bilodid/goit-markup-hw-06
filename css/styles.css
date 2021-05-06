@@ -15,11 +15,12 @@
   --background-secondary-color: #f5f4fa;
   --background-dark-primary-text-color: #ffffff;
   --background-dark-color: #2f303a;
-  --logo-font-family: 'Raleway', sans-serif;
-  --primary-font-family: 'Roboto', sans-serif;
+  --logo-font-family: "Raleway", sans-serif;
+  --primary-font-family: "Roboto", sans-serif;
   --flex-grid-margin: 30px;
   --animate-color: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --animate-background-color: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --animate-background-color: background-color 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
   --animate-border-color: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --animate-shadow: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --animate-transform: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -88,15 +89,17 @@ img {
   font-size: 16px;
   line-height: 1.62;
   font-weight: 500;
-  display: inline-block;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 6px 22px;
   border: 1px solid transparent;
   border-radius: 4px;
   color: var(--title-text-color);
   background-color: var(--background-secondary-color);
   cursor: pointer;
-  transition: var(--animate-color), var(--animate-background-color), var(--animate-border-color), var(--animate-shadow);
+  transition: var(--animate-color), var(--animate-background-color),
+    var(--animate-border-color), var(--animate-shadow);
 }
 
 .button.primary,
@@ -105,7 +108,8 @@ img {
   border-color: var(--accent-color);
   color: var(--primary-button-text-color);
   background-color: var(--accent-color);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .link {
@@ -199,7 +203,7 @@ img {
 }
 
 .menu-item .current::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   bottom: -33px;
@@ -250,13 +254,17 @@ img {
       var(--hero-overlay-background-color),
       var(--hero-overlay-background-color)
     ),
-    url('../images/hero-overlay.jpg');
+    url("../images/hero-overlay.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .hero .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+
   width: 700px;
 }
 
@@ -277,6 +285,7 @@ img {
   line-height: 1.87;
   letter-spacing: 0.06em;
   box-shadow: none;
+  align-self: center;
 }
 
 .backdrop {
@@ -297,13 +306,15 @@ img {
 
 .modal {
   position: absolute;
+  padding: 40px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   width: 530px;
   min-height: 580px;
   background-color: var(--background-primary-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -312,7 +323,7 @@ img {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-.modal-button {
+.modal-button-close {
   position: absolute;
   display: flex;
   align-items: center;
@@ -326,6 +337,117 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: transparent;
   cursor: pointer;
+  transition: var(--animate-color);
+}
+
+.modal-button-close:hover,
+.modal-button-close:focus {
+  color: var(--accent-color);
+}
+
+.modal-icon-close {
+  --color6: currentColor;
+}
+
+.modal-header {
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: 12px;
+
+  color: var(--title-text-color);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-label {
+  position: relative;
+}
+
+.modal-label-text {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+}
+
+.modal-input {
+  margin-bottom: 10px;
+  height: 40px;
+  width: 100%;
+  padding: 12px;
+  padding-left: 42px;
+
+  color: var(--title-text-color);
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: var(--animate-border-color);
+  cursor: pointer;
+}
+
+.modal-textarea-input {
+  height: 120px;
+  width: 100%;
+  resize: none;
+
+  color: var(--title-text-color);
+
+  padding: 12px 16px;
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: var(--animate-border-color);
+  cursor: pointer;
+}
+
+.modal-input:focus,
+.modal-textarea-input:focus {
+  border: 1px solid var(--accent-color);
+  outline: none;
+}
+
+.modal-label-icon {
+  --color1: currentColor;
+  color: var(--title-text-color);
+  display: block;
+  position: absolute;
+  top: 29px;
+  left: 15px;
+  transition: var(--animate-color);
+}
+
+.modal-input:focus ~ .modal-label-icon {
+  color: var(--accent-color);
+}
+
+.modal-checkbox-label {
+  align-self: center;
+  margin-bottom: 30px;
+
+  font-size: 14px;
+  line-height: 1.714;
+}
+
+.modal-policy-link,
+.modal-policy-link:visited {
+  color: var(--accent-color);
+}
+
+.modal-send-button {
+  align-self: center;
+  min-width: 200px;
+  height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.87;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
 .qualities.section {
@@ -390,7 +512,8 @@ img {
 .team-list-item {
   flex-basis: calc((100% - 4 * var(--flex-grid-margin)) / 4);
   background-color: var(--background-primary-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
 
@@ -491,7 +614,8 @@ img {
 .project-link:hover,
 .project-link:focus {
   color: inherit;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .project-link:hover .project-image-overlay,
 .project-link:focus .project-image-overlay {
@@ -573,9 +697,10 @@ img {
 
 .join-us-container {
   width: 270px;
+  margin-right: 30px;
 }
 
-.join-us-header {
+.footer-header {
   font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
@@ -593,4 +718,50 @@ img {
 .footer .social-icon-link:hover,
 .footer .social-icon-link:focus {
   background-color: var(--accent-color);
+}
+
+.subscribe-form {
+  display: flex;
+}
+
+.subscribe-input {
+  margin-right: 12px;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 16px 15px;
+  width: 358px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--background-dark-primary-text-color);
+}
+
+.subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px;
+  min-width: 200px;
+  padding: 10px 28px;
+
+  font-size: 16px;
+  line-height: 1.87;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.subscribe-button-text {
+  margin-right: 10px;
+}
+
+.subscribe-button-icon {
+  --color5: currentColor;
 }
