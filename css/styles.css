@@ -434,6 +434,22 @@ img {
   line-height: 1.714;
 }
 
+.modal-checkbox-label-text::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 7px;
+  width: 16px;
+  height: 15px;
+  background-image: url("../images/icons/icon-check-off.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.checkbox-modal-input:checked + .modal-checkbox-label-text::before {
+  background-image: url("../images/icons/icon-check-on.svg");
+}
+
 .modal-policy-link,
 .modal-policy-link:visited {
   color: var(--accent-color);
@@ -639,8 +655,8 @@ img {
 
 .clients-logo-link {
   display: flex;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  height: 92px;
+  align-items: center;
   justify-content: center;
 
   border: 1px solid var(--primary-icon-color);
