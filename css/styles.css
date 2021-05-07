@@ -450,11 +450,11 @@ img {
   background-position: center;
 }
 .checkbox-modal-input:focus + .modal-checkbox-label-text::before {
-  box-shadow: 0 0 0 1px var(--accent-color);
+  box-shadow: 0 0 0 2px var(--accent-color);
 }
 
 .checkbox-modal-input:checked:focus + .modal-checkbox-label-text::before {
-  box-shadow: 0 0 0 1px var(--title-text-color);
+  box-shadow: 0 0 0 2px var(--title-text-color);
 }
 
 .checkbox-modal-input:checked + .modal-checkbox-label-text::before {
